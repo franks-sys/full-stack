@@ -2,84 +2,85 @@ const db = require('../data/connection');
 
 const listar = async (req, res) => {
     try {
-        const [rows] = await db.execute('SELECT * FROM produto');
-        res.json(rows);
+        const [produtos] = await db.query('SELECT * FROM produto');
+        res.status(200).json(produtos);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ mensagem: 'Erro ao listar produtos'});
     }
 };
 
 const buscarPorId = async (req, res) => {
+    const { id } = req.params;
     try {
-        const { id } = req.params;
-        const [rows] = await db.execute('SELECT * FROM produto WHERE id = ?', [id]);
+        const [produtos] = await db.query('SELECT * FROM produto WHERE id = ?', [id]);
 
-        if (rows.length === 0) {
+        if (produtos.length === 0) {
             return res.status(404).json({ mensagem: 'Produto não encontrado' });
         }
 
-        res.json(rows[0]);
+        res.status(200).json(produtos[0]);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ mensagem: 'Erro ao buscar produto'});
     }
 };
 
 const criar = async (req, res) => {
+    const { nome, descricao, preco } = req.body;
     try {
-        const { nome, descricao, preco } = req.body;
+        const sql = `
+            INSERT INTO produto (nome, descricao, preco)
+            VALUES (?, ?, ?)
+        `;
+        const values = [nome, descricao, preco];
+        const [resultado] = await db.query(sql, values);
 
-        const [result] = await db.execute(
-            'INSERT INTO produto (nome, descricao, preco) VALUES (?, ?, ?)',
-            [nome, descricao, preco]
-        );
-
-        res.status(201).json({
-            id: result.insertId,
+        const novoProduto = {
+            id: resultado.insertId,
             nome,
             descricao,
             preco
-        });
+        };
+
+        res.status(201).json(novoProduto);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ mensagem: 'Erro ao criar produto'});
     }
 };
 
 const atualizar = async (req, res) => {
+    const { id } = req.params;
+    const { nome, descricao, preco } = req.body;
     try {
-        const { id } = req.params;
-        const { nome, descricao, preco } = req.body;
+        const sql = `
+            UPDATE produto
+            SET nome = ?, descricao = ?, preco = ?
+            WHERE id = ?
+        `;
+        const values = [nome, descricao, preco, id];
+        const [resultado] = await db.query(sql, values);
 
-        const [result] = await db.execute(
-            'UPDATE produto SET nome = ?, descricao = ?, preco = ? WHERE id = ?',
-            [nome, descricao, preco, id]
-        );
-
-        if (result.affectedRows === 0) {
+        if (resultado.affectedRows === 0) {
             return res.status(404).json({ mensagem: 'Produto não encontrado' });
         }
 
-        res.json({ mensagem: 'Produto atualizado com sucesso' });
+        res.status(200).json({ mensagem: 'Produto atualizado com sucesso' });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ mensagem: 'Erro ao atualizar produto'});
     }
 };
 
 const deletar = async (req, res) => {
+    const { id } = req.params;
     try {
-        const { id } = req.params;
+        const [resultado] = await db.query('DELETE FROM produto WHERE id = ?', [id]);
 
-        const [result] = await db.execute(
-            'DELETE FROM produto WHERE id = ?',
-            [id]
-        );
-
-        if (result.affectedRows === 0) {
+        if (resultado.affectedRows === 0) {
             return res.status(404).json({ mensagem: 'Produto não encontrado' });
         }
 
-        res.json({ mensagem: 'Produto deletado com sucesso' });
+        res.status(200).json({ mensagem: 'Produto deletado com sucesso' });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ mensagem: 'Erro ao deletar produto'});
     }
 };
 
