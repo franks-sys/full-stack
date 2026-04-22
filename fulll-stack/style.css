@@ -21,7 +21,7 @@ header {
 button {
     padding: 10px 15px;
     border: none;
-    background: #2e7d32; 
+    background: #318235; 
     color: white;
     border-radius: 8px;
     cursor: pointer;
@@ -47,9 +47,6 @@ button:hover {
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.03);
-}
 
 .card img {
     width: 100%;
@@ -75,7 +72,7 @@ button:hover {
 .modal {
     display: none;
     position: fixed;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
 }
@@ -94,5 +91,4 @@ button:hover {
 .modal-content input {
     padding: 10px;
     border-radius: 6px;
-    border: 1px solid #ccc;
 }
