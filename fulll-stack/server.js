@@ -6,6 +6,7 @@ const port = 3000;
 
 const produtoRoutes = require('./src/routes/produto.routes');
 
+app.use(express.json()); 
 app.use(produtoRoutes);
 
 app.listen(port, () => {

@@ -1,0 +1,223 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1770375000210
+  modified: 1770375000210
+  description: ""
+collection:
+  - name: Aula 03
+    meta:
+      id: fld_54ff59b5480448df82554b294a70da28
+      created: 1772192950082
+      modified: 1772198151404
+      sortKey: -1772192950082
+      description: ""
+    children:
+      - name: carros
+        meta:
+          id: fld_22cd08b408c64a17991618c77d42016f
+          created: 1772192950087
+          modified: 1772192950087
+          sortKey: -1772192950087
+          description: ""
+      - name: clientes
+        meta:
+          id: fld_c6c19d14c59c4287af07590b534177a4
+          created: 1772193757304
+          modified: 1772193757304
+          sortKey: -1772193757304
+          description: ""
+  - name: gitparty
+    meta:
+      id: fld_fd61562524f1445b88bf55c71df68562
+      created: 1773406943548
+      modified: 1773406943548
+      sortKey: -1773406943548
+      description: ""
+    children:
+      - name: Usuarios
+        meta:
+          id: fld_b57f123f784d4565841ab99e4e10904b
+          created: 1773406943553
+          modified: 1773406943553
+          sortKey: -1773406943553
+          description: ""
+      - name: Eventos
+        meta:
+          id: fld_9d3178bbb98c47ada29f6d23cc9ab8eb
+          created: 1773406943589
+          modified: 1773406943589
+          sortKey: -1773406943589
+          description: ""
+      - name: Inscricoes
+        meta:
+          id: fld_ae9f258351154f3ab583047747fd75d1
+          created: 1773406943628
+          modified: 1773406943628
+          sortKey: -1773406943628
+          description: ""
+  - name: API-Receitas-2025
+    meta:
+      id: fld_807d6bda208f40769b2e474a8e5ffbe2
+      created: 1774614953519
+      modified: 1774614953519
+      sortKey: -1774614953519
+      description: ""
+  - name: FULL-STACK
+    meta:
+      id: fld_bb36ab4040fa4b6b8809644dd84f4fb3
+      created: 1776859916497
+      modified: 1776859916497
+      sortKey: -1776859916497
+      description: ""
+    children:
+      - url: http://localhost:3000/deletar/produto/2
+        name: Deletar
+        meta:
+          id: req_b2281de3cb564c02a57a79f32ce32ea5
+          created: 1776859921992
+          modified: 1776860479781
+          isPrivate: false
+          description: ""
+          sortKey: -1776859921992
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/atualizar/produto/1
+        name: Atualizar
+        meta:
+          id: req_1c35f3ec4e3547d49327d9ad07a1966e
+          created: 1776859933320
+          modified: 1776860362300
+          isPrivate: false
+          description: ""
+          sortKey: -1776859933320
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "nome": "Notebook Atualizado",
+                "descricao": "Notebook gamer 32gb",
+                "preco": 5500.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/buscar/produto/1
+        name: Buscar
+        meta:
+          id: req_7e6345c9c16b407894c213959f6901e3
+          created: 1776859937446
+          modified: 1776860259245
+          isPrivate: false
+          description: ""
+          sortKey: -1776859937446
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/listar/produto
+        name: LIstar
+        meta:
+          id: req_ac457b34d8d942c395a76fe565e6af50
+          created: 1776859941151
+          modified: 1776860186185
+          isPrivate: false
+          description: ""
+          sortKey: -1776859941151
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/criar/produto
+        name: Cadastrar
+        meta:
+          id: req_36867ce2cca24dcbbafefa098d722a3d
+          created: 1776859996967
+          modified: 1776860315311
+          isPrivate: false
+          description: ""
+          sortKey: -1776859996967
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+                "nome": "Notebook",
+                "descricao": "Notebook gamer 16gb",
+                "preco": 4500.00
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1770375104636
+    modified: 1770375104636
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1770375104543
+    modified: 1770375104543
+    isPrivate: false
