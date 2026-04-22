@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Loja de Roupas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="https://via.placeholder.com/80" class="logo">
+    <button onclick="abrirModal()">+ Adicionar Produto</button>
+</header>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>Novo Produto</h2>
+
+        <input id="nome" placeholder="Nome">
+        <input id="preco" type="number" placeholder="Preço">
+        <input id="descricao" placeholder="Descrição">
+        <input id="imagem" placeholder="URL da imagem">
+
+        <button onclick="adicionarProduto()">Salvar</button>
+        <button onclick="fecharModal()">Cancelar</button>
+    </div>
+</div>
+
+<!-- Produtos -->
+<div id="produtos" class="grid"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
